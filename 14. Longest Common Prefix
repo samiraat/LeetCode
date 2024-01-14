@@ -1,0 +1,28 @@
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+
+        common_pref = ""
+        # solution 1 : 44 ms 17.5 mb  
+        # if len(strs) == 1 :
+        #     return strs[0]
+        # for i in range(len(strs[0])):           
+        #     arr = []
+        #     for j in range(len(strs)):   
+        #         if len(strs[j])> i:                   
+        #             arr.append(strs[j][i])
+        #         else: 
+        #             return common_pref
+        #     a = set(arr)  
+        #     if len(a) == 1:
+        #         common_pref += strs[0][i]
+        #     else:
+        #         return common_pref
+        # return common_pref
+
+        # solution 2: 38 ms 17.5 mb
+        for i in range(len(strs[0])):
+            for j  in range(len(strs)):
+                if len(strs[j])== i or strs[j][i] != strs[0][i] :
+                    return common_pref
+            common_pref += strs[0][i]
+        return common_pref

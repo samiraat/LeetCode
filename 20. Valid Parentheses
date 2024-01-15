@@ -1,0 +1,20 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        # solution 1 : 37 ms  17.48 mb
+        if len(s) % 2!=0 or s[0] in [')','}' , ']']:
+
+            return False
+        temp = []
+        for i in s:
+            if i in ['(','{' , '[']:
+                temp.append(i)
+            elif i ==')' and temp!= [] and temp[-1] == '(':
+                temp.pop(-1)
+            elif i == ']' and temp!= [] and temp[-1] == '[':
+                temp.pop(-1)
+            elif i =='}' and temp!= [] and temp[-1] == '{':
+                temp.pop(-1)
+            else:
+                return False
+
+        return len(temp)==0

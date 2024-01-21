@@ -1,0 +1,15 @@
+class Solution:
+    def searchInsert(self, nums: List[int], target):
+        # 45 ms - memory 17.34 mb
+        f = 0
+        l = len(nums ) - 1
+        while f <= l:
+            half = ((l-f) // 2) +f
+           
+            if target== nums[half]:
+                return half 
+            elif target > nums[half]:
+                f = half + 1
+            elif target < nums[half]:
+                l = half - 1
+        return f if f> l else l 

@@ -1,0 +1,21 @@
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        len_min = max(len(word1), len(word2))
+        s = ''
+        if len(word1)==0:
+            return word2
+        if len(word2) == 0:
+            return word1
+        p =0
+        q = 0
+        for i in range (len_min):
+          
+            if i % 2==0 :
+                s.append(word1[p])
+                p +=1
+            
+            else:
+                s.append(word2[q])
+                q +=1
+        if p != len(word1)-1:
+            

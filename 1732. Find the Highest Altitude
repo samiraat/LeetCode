@@ -1,0 +1,9 @@
+class Solution:
+    def largestAltitude(self, gain: List[int]) -> int:
+        #solution 1: 39 ms 0 16.45 mb
+        elv = []
+        elv.append(0)
+        for i in range(len(gain)):
+            elv.append(elv[i]+gain[i])
+
+        return max(elv)

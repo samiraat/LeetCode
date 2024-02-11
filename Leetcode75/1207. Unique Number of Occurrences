@@ -1,0 +1,14 @@
+class Solution:
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+        #solution 1 : 38 ms 16 mb
+        dic = dict()
+        for i in arr:
+            if i not in dic:
+                dic [i] = 1
+            else:
+                dic[i] = dic[i] + 1
+ 
+        n = len(dic)
+        v = len(set(dic.values()))
+        
+        return True if v == n else False

@@ -1,0 +1,26 @@
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        #solution 1 : 36 ms - 16 mb
+        a_int = 0
+        b_int  = 0
+        temp = 0
+        for i in range(len(a)-1 , -1, -1):
+            temp = len(a) -1 - i
+            a_int = (2 ** temp) * int(a[i]) + a_int
+   
+        for j in range(len(b)-1 , -1 , -1):
+            temp = len(b) -1 - j
+            b_int = (2 ** temp) * int(b[j])+ b_int
+   
+        a_int = a_int + b_int
+        remain = a_int
+        s = ''
+        if a_int == 0:
+            return str(a_int)
+        while a_int != 0:
+            remain = a_int % 2
+            a_int =  a_int // 2
+            
+            s = s + str(remain)
+ 
+        return s[::-1]

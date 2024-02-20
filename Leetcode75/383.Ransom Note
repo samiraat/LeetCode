@@ -1,0 +1,22 @@
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        #solution 1
+        for i in ransomNote:
+            if i not in magazine:
+                return False
+            else:
+                magazine = magazine.replace(i , ' ' ,1)
+        return True
+        #solution 2 64 ms
+        # dic_str = dict()
+        # for i in ransomNote:
+        #     if i not in dic_str:
+        #         dic_str [i] = 1
+        #     else:
+        #         dic_str[i] = dic_str[i] +1
+        # for j in magazine:
+        #     if j in dic_str:
+        #         dic_str[j] -= 1
+     
+        # flag = all(value <= 0 for value in dic_str.values())
+        # return flag

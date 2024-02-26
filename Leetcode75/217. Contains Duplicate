@@ -1,0 +1,19 @@
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        #solution 1 - 459 ms
+        # nums = sorted(nums)
+
+        # for i in range(1,len(nums)):
+        #     if nums[i] == nums[i-1]:
+        #         return True
+        # return False
+
+        #solution 2 - 423 ms
+
+        dic_val = dict()
+        for i in range(len(nums)):
+            if nums[i] in dic_val.keys():
+                return True
+            dic_val[nums[i]] = 0
+        return False
+            
